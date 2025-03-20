@@ -17,7 +17,7 @@ Billeterie :
 
 Gestionnaire :
 
-- programmer un vol avec un date, horaire, aeroport de départ et de destination
+- programmer un vol avec une date, horaire, aeroport de départ et de destination
 - supprimer ou modifier un vol programmé
 - visualiser toutes les réservations effectuées par les clients
 - visualiser le nombre de passagers pour chaque vol
