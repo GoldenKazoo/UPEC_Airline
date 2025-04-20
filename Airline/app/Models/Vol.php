@@ -23,10 +23,13 @@ class Vol extends Model
         return $this->belongsTo(Aeroport::class, 'aeroport_depart_id');
     }
 
-public function aeroportArrivee()
+    public function aeroportArrivee()
     {
         return $this->belongsTo(Aeroport::class, 'aeroport_arrivee_id');
     }
-
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }
 

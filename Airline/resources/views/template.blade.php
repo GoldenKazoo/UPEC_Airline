@@ -42,17 +42,17 @@
             <a class="nav-link active" href="{{ route('vols.create') }}">Ajouter un vol</a>
           </li>
           <li class="nav-item">
-    <a class="nav-link" href="{{ route('vols.delete') }}">Supprimer un vol</a>
+    <a class="nav-link active" href="{{ route('vols.delete') }}">Supprimer un vol</a>
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="apropos.html">Reservations effectuees</a>
+            <a class="nav-link active" href="apropos.html">Reservations effectuees</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="apropos.html">Voir le nombre de passager d'un vol</a>
+            <a class="nav-link active" href="apropos.html">Voir le nombre de passager d'un vol</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="apropos.html">Voir les places disponibles d'un vol</a>
+            <a class="nav-link active" href="apropos.html">Voir les places disponibles d'un vol</a>
           </li>
         </ul>
       </div>
