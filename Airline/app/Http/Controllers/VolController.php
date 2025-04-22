@@ -38,12 +38,40 @@ class VolController extends Controller
         return view('vols.delete', compact('vols'));
     }
 
-public function destroy($id)
-{
-    $vol = Vol::findOrFail($id);
-    $vol->delete();
+    public function destroy($id)
+    {
+        $vol = Vol::findOrFail($id);
+        $vol->delete();
 
-    return redirect()->route('vols.delete')->with('success', 'Vol supprimé avec succès.');
-}
+        return redirect()->route('vols.delete')->with('success', 'Vol supprimé avec succès.');
+    }
 
+    // New method to search flights based on filters
+    public function searchFlights(Request $request)
+    {
+        $aeroports = Aeroport::all();
+
+        $query = Vol::query();
+
+        if ($request->filled('departure_airport')) {
+            $query->where('aeroport_depart_id', $request->departure_airport);
+        }
+
+        if ($request->filled('arrival_airport')) {
+            $query->where('aeroport_arrivee_id', $request->arrival_airport);
+        }
+
+        if ($request->filled('departure_date')) {
+            $query->whereDate('date_depart', $request->departure_date);
+        }
+
+        // Removed filtering by heure_depart and heure_arrivee as per user request
+        if ($request->filled('arrival_date')) {
+            $query->whereDate('date_arrivee', $request->arrival_date);
+        }
+
+        $flights = $query->with(['aeroportDepart', 'aeroportArrivee'])->get();
+
+        return view('billetterie', compact('flights', 'aeroports'));
+    }
 }

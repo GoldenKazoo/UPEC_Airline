@@ -9,6 +9,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/billetterie', [VolController::class, 'searchFlights'])->name('ticket.showFly');
+
+Route::get('/reservation/create/{volId}', [ReservationController::class, 'create'])->name('reservation.create');
+Route::post('/reservation', [ReservationController::class, 'addToPanier'])->name('reservation.store');
+
+Route::get('/panier', [ReservationController::class, 'showPanier'])->name('panier.show');
+Route::post('/panier/confirm', [ReservationController::class, 'confirmPurchase'])->name('panier.confirm');
+Route::get('/reservation/confirmation', [ReservationController::class, 'confirmation'])->name('reservation.confirmation');
+
 // Authentification
 Route::get('/register', [LogController::class, 'createForm'])->name('auth.registerForm');
 Route::post('/register', [LogController::class, 'create'])->name('auth.register');

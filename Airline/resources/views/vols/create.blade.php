@@ -65,4 +65,22 @@
         <button type="submit" class="btn btn-primary">Créer le vol</button>
     </form>
 </div> 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('addPassenger').addEventListener('click', function() {
+        const passengersDiv = document.getElementById('passengers');
+        const count = passengersDiv.children.length;
+        const newPassenger = document.createElement('div');
+        newPassenger.classList.add('passenger', 'form-group', 'mb-3');
+        newPassenger.innerHTML = `
+            <label for="prenom_${count}">Prénom</label>
+            <input type="text" class="form-control" id="prenom_${count}" name="prenom[]" required>
+            <label for="nom_${count}" class="mt-2">Nom</label>
+            <input type="text" class="form-control" id="nom_${count}" name="nom[]" required>
+        `;
+        passengersDiv.appendChild(newPassenger);
+    });
+});
+</script>
 @endsection
