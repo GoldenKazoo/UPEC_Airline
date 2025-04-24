@@ -20,9 +20,9 @@ class ReservationController extends Controller
     }
 
     // Afficher le formulaire de réservation pour le vol sélectionné
-    public function create($volId)
+    public function create($vol_id)
     {
-        $vol = Vol::findOrFail($volId);
+        $vol = Vol::findOrFail($vol_id);
         return view('reservation.create', compact('vol'));
     }
 
@@ -68,6 +68,19 @@ class ReservationController extends Controller
         return view('reservation.panier', compact('flights'));
     }
 
+    // Supprimer un vol du panier par index
+    public function removeFromPanier($index)
+    {
+        $panier = Session::get('panier', []);
+        if (isset($panier[$index])) {
+            unset($panier[$index]);
+            $panier = array_values($panier);
+            Session::put('panier', $panier);
+            return redirect()->route('panier.show')->with('success', 'Vol supprimé du panier.');
+        }
+        return redirect()->route('panier.show')->with('error', 'Vol non trouvé dans le panier.');
+    }
+
     // Confirmer l'achat et enregistrer toutes les réservations et passagers
     public function confirmPurchase()
     {
@@ -91,7 +104,6 @@ class ReservationController extends Controller
                 $passager->reservation_id = $reservation->id;
                 $passager->prenom = $item['prenoms'][$i];
                 $passager->nom = $item['noms'][$i];
-                //$passager->email = $item['email'];
                 $passager->save();
 
                 $passagers[] = $passager;

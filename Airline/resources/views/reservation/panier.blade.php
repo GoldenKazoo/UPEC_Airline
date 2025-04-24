@@ -19,10 +19,11 @@
                         <th>Vol</th>
                         <th>Passagers</th>
                         <th>Email</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($flights as $item)
+                    @foreach($flights as $index => $item)
                         <tr>
                             <td>
                                 {{ $item['vol']->aeroportDepart->nom }} → {{ $item['vol']->aeroportArrivee->nom }}<br>
@@ -39,6 +40,9 @@
                                 </ul>
                             </td>
                             <td>{{ $item['email'] }}</td>
+                            <td>
+                                <a href="{{ route('panier.remove', ['index' => $index]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer ce vol du panier ?')">Supprimer</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -46,8 +50,13 @@
 
             <button type="submit" class="btn btn-primary">Confirmer l'achat</button>
         </form>
+
     @else
         <p>Votre panier est vide.</p>
     @endif
+</div>
+
+<div style="position: fixed; bottom: 20px; left: 50%;">
+    <a href="{{ route('ticket.showFly') }}" class="btn btn-secondary">Retour à la billetterie</a>
 </div>
 @endsection
