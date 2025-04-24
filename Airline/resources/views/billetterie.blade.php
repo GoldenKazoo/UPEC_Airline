@@ -58,7 +58,7 @@
                                 Arrivée : {{ \Carbon\Carbon::parse($flight->date_arrivee->format('Y-m-d') . ' ' . \Carbon\Carbon::parse($flight->heure_arrivee)->format('H:i:s'))->format('d/m/Y H:i') }}<br>
                                 Prix : {{ $flight->prix }} €
                             </p>
-                            <a href="{{ route('reservation.create', ['volId' => $flight->id]) }}" class="btn btn-success">Réserver</a>
+                                <a href="{{ route('reservation.create', ['vol_id' => $flight->id]) }}" class="btn btn-success">Réserver</a>
                         </div>
                     </div>
                 </div>
