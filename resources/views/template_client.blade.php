@@ -37,8 +37,6 @@
           <li class="nav-item">
             <a class="nav-link active"  href="{{ route('flights.index') }}">Reserver un vol</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="{{ route('panier.index') }}">Panier</a>
         </ul>
       </div>
     </div>
