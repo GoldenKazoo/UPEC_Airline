@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
 
-    // Routes pour gérer les vols
+    // grstion vol
     Route::get('/admin/flights', [\App\Http\Controllers\AdminController::class, 'flights'])->name('admin.flights');
     Route::get('/admin/flights/create', [\App\Http\Controllers\AdminController::class, 'createFlight'])->name('admin.flights.create');
     Route::post('/admin/flights/store', [\App\Http\Controllers\AdminController::class, 'storeFlight'])->name('admin.flights.store');
@@ -36,6 +36,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/flights/update/{flight}', [\App\Http\Controllers\AdminController::class, 'updateFlight'])->name('admin.flights.update');
     Route::post('/admin/flights/delete/{flight}', [\App\Http\Controllers\AdminController::class, 'deleteFlight'])->name('admin.flights.delete');
 
-    // Voir toutes les réservations
+    // voir les resa
     Route::get('/admin/reservations', [\App\Http\Controllers\AdminController::class, 'reservations'])->name('admin.reservations');
 });

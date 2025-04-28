@@ -15,7 +15,7 @@ class Passenger extends Model
         'last_name',
     ];
 
-    // Relations
+
     public function reservation()
     {
         return $this->belongsTo(Reservation::class);

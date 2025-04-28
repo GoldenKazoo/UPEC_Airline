@@ -60,13 +60,13 @@ class AdminController extends Controller
 
         $flight->update($validated);
 
-        return redirect()->route('admin.flights')->with('success', 'Vol modifié avec succès !');
+        return redirect()->route('admin.flights')->with('success', 'Vol modifié avc succès !');
     }
 
     public function deleteFlight(Flight $flight)
     {
         $flight->delete();
-        return redirect()->route('admin.flights')->with('success', 'Vol supprimé avec succès !');
+        return redirect()->route('admin.flights')->with('success', 'Vol supprimé avc succès !');
     }
 
     public function reservations()

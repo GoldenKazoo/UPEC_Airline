@@ -9,19 +9,16 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // Afficher page login
     public function showLogin()
     {
         return view('login');
     }
 
-    // Afficher page création compte
     public function showCreateLogin()
     {
         return view('createLogin');
     }
 
-    // Traiter l'inscription
     public function register(Request $request)
     {
         $request->validate([
@@ -41,7 +38,6 @@ class AuthController extends Controller
         return redirect()->route('account');
     }
 
-    // Traiter la connexion
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -59,7 +55,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // Déconnexion
     public function logout(Request $request)
     {
         Auth::logout();
@@ -69,7 +64,6 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
-    // Compte utilisateur après connexion
     public function account()
     {
         return view('account');

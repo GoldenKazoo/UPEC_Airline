@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Flight extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'flight_number',
         'departure_airport_id',
@@ -18,8 +16,7 @@ class Flight extends Model
         'seats_available',
         'price',
     ];
-
-    // Relations
+    
     public function departureAirport()
     {
         return $this->belongsTo(Airport::class, 'departure_airport_id');
@@ -43,5 +40,4 @@ public function seatsLeft()
 {
     return $this->seats_available - $this->numberOfPassengers();
 }
-
 }

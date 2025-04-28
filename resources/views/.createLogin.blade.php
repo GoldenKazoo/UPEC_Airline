@@ -1,4 +1,4 @@
-@extends('template')
+@extends('template_admin')
 
 @section('content')
 <div class="container mt-5">
@@ -36,12 +36,8 @@
             <label>Confirmation du mot de passe</label>
             <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmer mot de passe" required>
         </div>
-
-        <button type="submit" class="btn btn-success w-100">Créer mon compte</button>
-
-        <div class="mt-3 text-center">
-            <a href="{{ route('login') }}">Déjà inscrit ? Se connecter</a>
-        </div>
     </form>
 </div>
 @endsection
+
+<!-- Cette vue n'est la que pour notre usage personnel, la laisser serait dangereux car nimporte qui pourrait se creer un login et se co -->

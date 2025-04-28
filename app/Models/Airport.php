@@ -14,7 +14,6 @@ class Airport extends Model
         'code',
     ];
 
-    // Relations
     public function departures()
     {
         return $this->hasMany(Flight::class, 'departure_airport_id');

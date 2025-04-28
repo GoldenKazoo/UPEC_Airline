@@ -16,7 +16,6 @@ class Reservation extends Model
         'email',
     ];
 
-    // Relations
     public function flight()
     {
         return $this->belongsTo(Flight::class);

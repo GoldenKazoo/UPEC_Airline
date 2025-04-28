@@ -6,19 +6,19 @@
         <form method="GET" action="{{ route('flights.index') }}">
             <div class="row">
                 <div class="col-md-3">
-                    <input type="date" name="departure_date" class="form-control" placeholder="Date de départ" value="{{ request('departure_date') }}">
+                    <input type="date" name="departure_date" class="form-control" value="{{ request('departure_date') }}">
                 </div>
                 <div class="col-md-3">
-                    <input type="date" name="arrival_date" class="form-control" placeholder="Date d'arrivée" value="{{ request('arrival_date') }}">
+                    <input type="date" name="arrival_date" class="form-control"value="{{ request('arrival_date') }}">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="departure_airport" class="form-control" placeholder="Aéroport de départ" value="{{ request('departure_airport') }}">
+                    <input type="text" name="departure_airport" class="form-control" placeholder= "Depart" value="{{ request('departure_airport') }}">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="arrival_airport" class="form-control" placeholder="Aéroport d'arrivée" value="{{ request('arrival_airport') }}">
+                    <input type="text" name="arrival_airport" class="form-control" placeholder="Arrivée" value="{{ request('arrival_airport') }}">
                 </div>
             </div>
-            <div class="mt-3 text-end">
+            <div class="mt-4 text-center">
                 <button type="submit" class="btn btn-primary">Rechercher</button>
             </div>
         </form>
