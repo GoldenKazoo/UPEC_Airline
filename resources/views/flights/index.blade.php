@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-3">
     <h1 class="mb-5">Liste des Vols</h1>
     
     <div class="row">
@@ -43,10 +43,11 @@
                         </p>
                     </div>
                 </div>
+                <form action="{{ route('panier.add', $flight->id) }}" method="POST" class="mt-1">
+                <button type="submit" class="btn btn-success">Ajouter au Panier</button>
             </div>
-            <form action="{{ route('panier.add', $flight->id) }}" method="POST" class="mt-3">
     @csrf
-    <button type="submit" class="btn btn-success">Ajouter au Panier</button>
+    <br>
 </form>
 
         @endforeach
